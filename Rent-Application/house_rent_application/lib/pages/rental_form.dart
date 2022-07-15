@@ -244,10 +244,10 @@ class _Applicant_PageState extends State<Applicant_Page> {
                         ),
                       ),
                       onPressed: () {
-                        Navigator.of(context).pop();
+                        Navigator.pushNamed(context, '/bank');
                       },
                       child: const Text(
-                        "Playment",
+                        "Pay",
                         style: TextStyle(
                           color: Color.fromARGB(255, 17, 17, 17),
                           fontWeight: FontWeight.bold,
