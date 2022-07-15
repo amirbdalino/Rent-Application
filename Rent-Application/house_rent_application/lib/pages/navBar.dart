@@ -13,8 +13,8 @@ class NavBar extends StatelessWidget {
             accountEmail: Text('@kabbee.org'),
             currentAccountPicture: CircleAvatar(
               child: ClipOval(
-                child: Image.network(
-                  'https://tinyurl.com/yz6zpb58',
+                child: Image.asset(
+                  'assets/kre1.jpg',
                   width: 90,
                   height: 90,
                   //fit: BoxFit.cover,
