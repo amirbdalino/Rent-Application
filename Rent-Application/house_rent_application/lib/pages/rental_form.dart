@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:house_rent_application/pages/navBar.dart';
 
-class Applicant_Page extends StatefulWidget {
-  const Applicant_Page({Key? key}) : super(key: key);
+class ApplicantPage extends StatefulWidget {
+  const ApplicantPage({Key? key}) : super(key: key);
 
   @override
-  State<Applicant_Page> createState() => _Applicant_PageState();
+  State<ApplicantPage> createState() => _ApplicantPageState();
 }
 
-class _Applicant_PageState extends State<Applicant_Page> {
+class _ApplicantPageState extends State<ApplicantPage> {
   final firstName = TextEditingController();
   bool _validate = false;
 
@@ -50,7 +50,7 @@ class _Applicant_PageState extends State<Applicant_Page> {
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 26, vertical: 16),
                 child: TextField(
-                  controller: firstName,
+                  //controller: firstName,
                   decoration: InputDecoration(
                     suffixIcon: Icon(Icons.person),
                     border: OutlineInputBorder(
@@ -59,7 +59,7 @@ class _Applicant_PageState extends State<Applicant_Page> {
                       ),
                     ),
                     labelText: 'First Name',
-                    errorText: _validate ? 'Username Can\'t Be Empty' : null,
+                    //errorText: _validate ? 'Username Can\'t Be Empty' : null,
                   ),
                 ),
               ),

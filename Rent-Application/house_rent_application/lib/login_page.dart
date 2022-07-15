@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:house_rent_application/pages/rental_form.dart';
+import 'package:house_rent_application/home/home_page.dart';
 import 'package:house_rent_application/pages/Reset_Password.dart';
 import 'package:house_rent_application/pages/registration.dart';
 
@@ -144,7 +144,7 @@ class _LoginPageState extends State<LoginPage> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const Applicant_Page()));
+                            builder: (context) => const HomePage()));
                   },
                   child: Text(
                     'Login',
