@@ -63,10 +63,7 @@ class HomePage extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const HomePage()));
+                          Navigator.pushNamed(context, '/rent');
                         },
                         child: Text(
                           'Houses for rent',
