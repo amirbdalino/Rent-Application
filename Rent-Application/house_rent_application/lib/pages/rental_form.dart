@@ -8,15 +8,9 @@ class ApplicantPage extends StatefulWidget {
   State<ApplicantPage> createState() => _ApplicantPageState();
 }
 
-<<<<<<< HEAD
 class _ApplicantPageState extends State<ApplicantPage> {
   final firstName = TextEditingController();
   bool _validate = false;
-=======
-class _Applicant_PageState extends State<Applicant_Page> {
-  // final firstName = TextEditingController();
-  // bool _validate = false;
->>>>>>> 4c12bfbcb5fa017ffae77d40aaa9ed6cadcc9c73
 
   // @override
   // void dispose() {
@@ -32,9 +26,9 @@ class _Applicant_PageState extends State<Applicant_Page> {
         drawer: NavBar(),
         backgroundColor: Colors.white70,
         appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 57, 18, 83),
+          backgroundColor: Color.fromARGB(255, 39, 2, 46),
           title: const Text(
-            "Rental Application Form",
+            "Kabbee Real Estate",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
           ),
         ),
@@ -65,11 +59,8 @@ class _Applicant_PageState extends State<Applicant_Page> {
                       ),
                     ),
                     labelText: 'First Name',
-<<<<<<< HEAD
+
                     //errorText: _validate ? 'Username Can\'t Be Empty' : null,
-=======
-                    // errorText: _validate ? 'Username Can\'t Be Empty' : null,
->>>>>>> 4c12bfbcb5fa017ffae77d40aaa9ed6cadcc9c73
                   ),
                 ),
               ),

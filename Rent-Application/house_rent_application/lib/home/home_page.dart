@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
           backgroundColor: Colors.grey[300],
           drawer: NavBar(),
           appBar: AppBar(
-            title: Text('Kabbee House Rent'),
+            title: Text('Kabbee Real Estate'),
             elevation: 0,
             centerTitle: true,
             backgroundColor: Color.fromARGB(255, 39, 2, 46),
@@ -69,7 +69,7 @@ class HomePage extends StatelessWidget {
                                   builder: (context) => const HomePage()));
                         },
                         child: Text(
-                          'For Sale',
+                          'Houses for rent',
                           style: TextStyle(
                             color: Colors.grey[900],
                             fontWeight: FontWeight.bold,
@@ -90,7 +90,7 @@ class HomePage extends StatelessWidget {
                         ),
                         onPressed: () {},
                         child: Text(
-                          'For Sale',
+                          'Houses for sale',
                           style: TextStyle(
                             color: Colors.grey[900],
                             fontWeight: FontWeight.bold,
@@ -111,7 +111,7 @@ class HomePage extends StatelessWidget {
                         ),
                         onPressed: () {},
                         child: Text(
-                          'For Sale',
+                          'Guest Houses',
                           style: TextStyle(
                             color: Colors.grey[900],
                             fontWeight: FontWeight.bold,
@@ -122,6 +122,7 @@ class HomePage extends StatelessWidget {
                     ),
                   ],
                 ),
+                SizedBox(height: 70.0),
               ],
             ),
           )),

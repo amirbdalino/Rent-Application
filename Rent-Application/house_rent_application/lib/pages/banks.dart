@@ -15,7 +15,7 @@ class PaymentForm extends StatelessWidget {
       appBar: AppBar(
         title: Text('Kabbee Real Estate'),
         centerTitle: true,
-        backgroundColor: Color.fromARGB(255, 32, 1, 38),
+        backgroundColor: Color.fromARGB(255, 39, 2, 46),
       ),
       body: SingleChildScrollView(
         child: Column(
