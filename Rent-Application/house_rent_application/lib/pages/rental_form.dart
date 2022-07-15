@@ -9,8 +9,8 @@ class Applicant_Page extends StatefulWidget {
 }
 
 class _Applicant_PageState extends State<Applicant_Page> {
-  final firstName = TextEditingController();
-  bool _validate = false;
+  // final firstName = TextEditingController();
+  // bool _validate = false;
 
   // @override
   // void dispose() {
@@ -50,7 +50,7 @@ class _Applicant_PageState extends State<Applicant_Page> {
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 26, vertical: 16),
                 child: TextField(
-                  controller: firstName,
+                  //controller: firstName,
                   decoration: InputDecoration(
                     suffixIcon: Icon(Icons.person),
                     border: OutlineInputBorder(
@@ -59,7 +59,7 @@ class _Applicant_PageState extends State<Applicant_Page> {
                       ),
                     ),
                     labelText: 'First Name',
-                    errorText: _validate ? 'Username Can\'t Be Empty' : null,
+                    // errorText: _validate ? 'Username Can\'t Be Empty' : null,
                   ),
                 ),
               ),
@@ -89,6 +89,7 @@ class _Applicant_PageState extends State<Applicant_Page> {
                     ),
                     labelText: ' E-mail address',
                   ),
+                  keyboardType: TextInputType.name,
                 ),
               ),
               const Padding(
@@ -103,6 +104,8 @@ class _Applicant_PageState extends State<Applicant_Page> {
                     ),
                     labelText: ' Phone Number',
                   ),
+                  keyboardType: TextInputType.phone,
+                  //maxLength: 10,
                 ),
               ),
               const Divider(
@@ -213,7 +216,7 @@ class _Applicant_PageState extends State<Applicant_Page> {
       context: context,
       barrierDismissible: false,
       builder: (context) => AlertDialog(
-            title: const Text("Thank You"),
+            title: const Center(child: Text("Thank You")),
             actions: [
               Column(
                 children: [
