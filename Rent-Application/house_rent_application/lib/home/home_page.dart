@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:house_rent_application/home/widget/categories.dart';
 import 'package:house_rent_application/home/widget/top_house.dart';
 import 'package:house_rent_application/home/widget/welcome.dart';
-
+import 'package:house_rent_application/home/widget/guesthouse.dart';
 import 'package:house_rent_application/pages/navBar.dart';
 
 class HomePage extends StatelessWidget {
@@ -106,7 +106,12 @@ class HomePage extends StatelessWidget {
                             borderRadius: BorderRadius.circular(30.0),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const GuestHouse()));
+                        },
                         child: Text(
                           'Guest Houses',
                           style: TextStyle(
