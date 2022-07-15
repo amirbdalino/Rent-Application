@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:house_rent_application/pages/navBar.dart';
 
-class Applicant_Page extends StatefulWidget {
-  const Applicant_Page({Key? key}) : super(key: key);
+class ApplicantPage extends StatefulWidget {
+  const ApplicantPage({Key? key}) : super(key: key);
 
   @override
-  State<Applicant_Page> createState() => _Applicant_PageState();
+  State<ApplicantPage> createState() => _ApplicantPageState();
 }
 
+<<<<<<< HEAD
+class _ApplicantPageState extends State<ApplicantPage> {
+  final firstName = TextEditingController();
+  bool _validate = false;
+=======
 class _Applicant_PageState extends State<Applicant_Page> {
   // final firstName = TextEditingController();
   // bool _validate = false;
+>>>>>>> 4c12bfbcb5fa017ffae77d40aaa9ed6cadcc9c73
 
   // @override
   // void dispose() {
@@ -59,7 +65,11 @@ class _Applicant_PageState extends State<Applicant_Page> {
                       ),
                     ),
                     labelText: 'First Name',
+<<<<<<< HEAD
+                    //errorText: _validate ? 'Username Can\'t Be Empty' : null,
+=======
                     // errorText: _validate ? 'Username Can\'t Be Empty' : null,
+>>>>>>> 4c12bfbcb5fa017ffae77d40aaa9ed6cadcc9c73
                   ),
                 ),
               ),
