@@ -8,9 +8,15 @@ class ApplicantPage extends StatefulWidget {
   State<ApplicantPage> createState() => _ApplicantPageState();
 }
 
+<<<<<<< HEAD
 class _ApplicantPageState extends State<ApplicantPage> {
   final firstName = TextEditingController();
   bool _validate = false;
+=======
+class _Applicant_PageState extends State<Applicant_Page> {
+  // final firstName = TextEditingController();
+  // bool _validate = false;
+>>>>>>> 4c12bfbcb5fa017ffae77d40aaa9ed6cadcc9c73
 
   // @override
   // void dispose() {
@@ -59,7 +65,11 @@ class _ApplicantPageState extends State<ApplicantPage> {
                       ),
                     ),
                     labelText: 'First Name',
+<<<<<<< HEAD
                     //errorText: _validate ? 'Username Can\'t Be Empty' : null,
+=======
+                    // errorText: _validate ? 'Username Can\'t Be Empty' : null,
+>>>>>>> 4c12bfbcb5fa017ffae77d40aaa9ed6cadcc9c73
                   ),
                 ),
               ),
@@ -89,6 +99,7 @@ class _ApplicantPageState extends State<ApplicantPage> {
                     ),
                     labelText: ' E-mail address',
                   ),
+                  keyboardType: TextInputType.name,
                 ),
               ),
               const Padding(
@@ -103,6 +114,8 @@ class _ApplicantPageState extends State<ApplicantPage> {
                     ),
                     labelText: ' Phone Number',
                   ),
+                  keyboardType: TextInputType.phone,
+                  //maxLength: 10,
                 ),
               ),
               const Divider(
@@ -213,7 +226,7 @@ class _ApplicantPageState extends State<ApplicantPage> {
       context: context,
       barrierDismissible: false,
       builder: (context) => AlertDialog(
-            title: const Text("Thank You"),
+            title: const Center(child: Text("Thank You")),
             actions: [
               Column(
                 children: [
@@ -241,10 +254,10 @@ class _ApplicantPageState extends State<ApplicantPage> {
                         ),
                       ),
                       onPressed: () {
-                        Navigator.of(context).pop();
+                        Navigator.pushNamed(context, '/bank');
                       },
                       child: const Text(
-                        "Playment",
+                        "Pay",
                         style: TextStyle(
                           color: Color.fromARGB(255, 17, 17, 17),
                           fontWeight: FontWeight.bold,

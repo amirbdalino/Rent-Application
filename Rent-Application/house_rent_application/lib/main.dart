@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:house_rent_application/login_page.dart';
+import 'package:house_rent_application/pages/banks.dart';
 import 'package:house_rent_application/pages/registration.dart';
-
 
 void main() {
   runApp(MyApp());
@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
         '/login': (context) => LoginPage(),
         
         '/singup': (context) => const Registration(),
+        '/bank': (context) => PaymentForm(),
       },
     );
   }
