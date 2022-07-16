@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-
+import 'package:house_rent_application/home/home_page.dart';
 
 class GuestHouse extends StatefulWidget {
   const GuestHouse({Key? key}) : super(key: key);
@@ -31,9 +30,13 @@ class AlertMessage extends StatelessWidget {
         child: Scaffold(
           appBar: AppBar(
             leading: IconButton(
-              icon: const Icon(Icons.arrow_back, color: Colors.white),
-              onPressed: () => Navigator.of(context).pop(),
-            ),
+                icon: const Icon(Icons.arrow_back, color: Colors.white),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const HomePage()));
+                }),
             backgroundColor: Colors.grey[900],
             title: const Text('Guest House'),
             centerTitle: true,
