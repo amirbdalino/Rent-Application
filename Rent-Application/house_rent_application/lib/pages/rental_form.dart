@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:house_rent_application/pages/navBar.dart';
 
@@ -47,9 +49,9 @@ class _ApplicantPageState extends State<ApplicantPage> {
                 color: Colors.grey,
                 thickness: 2,
               ),
-              const Padding(
+               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 26, vertical: 16),
-                child: TextField(
+                child: TextFormField(
                   //controller: firstName,
                   decoration: InputDecoration(
                     suffixIcon: Icon(Icons.person),
@@ -60,7 +62,7 @@ class _ApplicantPageState extends State<ApplicantPage> {
                     ),
                     labelText: 'First Name',
 
-                    //errorText: _validate ? 'Username Can\'t Be Empty' : null,
+                    errorText: _validate ? 'Username Can\'t Be Empty' : null,
                   ),
                 ),
               ),

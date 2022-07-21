@@ -1,16 +1,80 @@
+// ignore_for_file: prefer_const_constructors
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:house_rent_application/home/home_page.dart';
+import 'package:flutter_textfield_validation/flutter_textfield_validation.dart';
+// import 'package:house_rent_application/home/home_page.dart';
 import 'package:house_rent_application/pages/Reset_Password.dart';
 import 'package:house_rent_application/pages/registration.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  const LoginPage({
+    Key? key,
+    String? Function(String?)? validator = passwordValidator,
+  }) : super(key: key);
 
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
+  // final formKey = GlobalKey<FormState>();
+  // bool enableLoginButton = false;
+  // String? email;
+  // String? password;
+  // Text controllers
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
+  Future signIn() async {
+    // loading circle
+    showDialog(
+      context: context,
+      builder: (context) {
+        return Center(
+          child: CircularProgressIndicator(),
+        );
+      },
+    );
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: _emailController.text.trim(),
+        password: _passwordController.text.trim(),
+      );
+      print('signed in');
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(
+          'Succesfully logged in',
+          // style: ,
+        ),
+        backgroundColor: Colors.blueAccent,
+        duration: Duration(seconds: 2),
+      ));
+    } on FirebaseAuthException catch (e) {
+      print(e);
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(
+          'Enter your email or password correctly',
+          style: TextStyle(fontSize: 16, color: Colors.black),
+          // style: ,
+        ),
+        backgroundColor: Colors.red,
+        duration: Duration(seconds: 2),
+      ));
+      //pop the loading circle
+
+    }
+
+    Navigator.pushNamed(context, '/home');
+  }
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
   bool _isVisible = false;
 
   void updateStatus() {
@@ -19,6 +83,9 @@ class _LoginPageState extends State<LoginPage> {
     });
   }
 
+  // void setEmail(String value) => email = value.trim();
+
+  // void setPassword(String value) => password = value.toString();
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -71,9 +138,13 @@ class _LoginPageState extends State<LoginPage> {
           ),
           SizedBox(height: 20.0),
           //email textfield
-          const Padding(
+          Padding(
             padding: EdgeInsets.symmetric(horizontal: 26, vertical: 6),
-            child: TextField(
+            child: TextFormField(
+              controller: _emailController,
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              validator: (input) =>
+                  input!.validateEmail() ? null : "Please enter valid email!",
               decoration: InputDecoration(
                 suffixIcon: Icon(Icons.email),
                 border: OutlineInputBorder(
@@ -91,7 +162,10 @@ class _LoginPageState extends State<LoginPage> {
           //email textfield
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 3),
-            child: TextField(
+            child: TextFormField(
+              controller: _passwordController,
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              validator: passwordValidator,
               obscureText: _isVisible ? false : true,
               decoration: InputDecoration(
                 suffixIcon: IconButton(
@@ -116,7 +190,7 @@ class _LoginPageState extends State<LoginPage> {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => Resetpassword()));
                 },
-                child: const Text('Forget password?',
+                child: const Text('Forgot password?',
                     style: TextStyle(
                       color: Colors.amber,
                     )),
@@ -140,12 +214,7 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius: BorderRadius.circular(30.0),
                     ),
                   ),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const HomePage()));
-                  },
+                  onPressed: signIn,
                   child: Text(
                     'Login',
                     style: TextStyle(
@@ -188,4 +257,19 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
+}
+
+String? passwordValidator(String? password) {
+  if (password != null && !isAlphaNumeric(password)) {
+    return 'Password has to be 8 characters long with atleast one number';
+  }
+
+  return null;
+}
+
+/// Regular expression for password validation
+bool isAlphaNumeric(String? value) {
+  String pattern = r'^(?=.*\d)(?=.*[a-z])(?=.*[a-zA-Z]).{8,}$';
+  RegExp regExp = RegExp(pattern);
+  return regExp.hasMatch(value!);
 }

@@ -40,6 +40,30 @@
   <script src="flutter.js" defer></script>
 </head>
 <body>
+  <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+
+<script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+//<script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+
+
+<script defer src="./init-firebase.js"></script>
+  <script>
+    var firebaseConfig = {
+  apiKey: "AIzaSyCRuM3rotk09XECjrDEywdrjnigzX8Nj84",
+  authDomain: "rent-app-9c17c.firebaseapp.com",
+  //databaseURL: "https://rent-app-9c17c-default-rtdb.firebaseio.com",
+  projectId: "rent-app-9c17c",
+  storageBucket: "rent-app-9c17c.appspot.com",
+  messagingSenderId: "380116515352",
+  appId: "1:380116515352:web:1049c569a5f8cb2453a16d",
+  measurementId: "G-N0XC8M71GQ"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+ //app = initializeApp(firebaseConfig);
+  </script>
   <script>
     window.addEventListener('load', function(ev) {
       // Download main.dart.js

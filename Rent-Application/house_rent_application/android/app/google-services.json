@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "380116515352",
+    "firebase_url": "https://rent-app-9c17c-default-rtdb.firebaseio.com",
+    "project_id": "rent-app-9c17c",
+    "storage_bucket": "rent-app-9c17c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:380116515352:android:f830e7b05f73a00d53a16d",
+        "android_client_info": {
+          "package_name": "com.example.house_rent_application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "380116515352-26jkthq30f4foj0dhbbqu673mde7utl2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbE6XNDLhauMC0zFSrc3xvG589wWLNZVo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "380116515352-26jkthq30f4foj0dhbbqu673mde7utl2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

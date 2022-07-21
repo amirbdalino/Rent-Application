@@ -8,21 +8,24 @@ class DetailAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 400,
-      child: Stack(
-        children: [
-          Image.asset(
-            house.imageUrl,
-            fit: BoxFit.cover,
-            height: double.infinity,
-          ),
-          ListTile(
-            leading: Icon(Icons.arrow_back),
-            iconColor: Colors.black,
-            onTap: () => Navigator.of(context).pop(),
-          ),
-        ],
+    return SafeArea(
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        height: 400,
+        child: Stack(
+          children: [
+            Image.asset(
+              house.imageUrl,
+              fit: BoxFit.cover,
+              height: double.infinity,
+            ),
+            ListTile(
+              leading: const Icon(Icons.arrow_back),
+              iconColor: Colors.black,
+              onTap: () => Navigator.of(context).pop(),
+            ),
+          ],
+        ),
       ),
     );
   }

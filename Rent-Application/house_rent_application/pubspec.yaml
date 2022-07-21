@@ -30,7 +30,12 @@ dependencies:
   flutter:
     sdk: flutter 
   social_login_buttons: ^1.0.6+2 
-  
+  flutter_textfield_validation: ^0.0.1
+  flutter_form_builder: ^7.4.0
+  firebase_auth: ^3.4.1
+  firebase_core: ^1.0.1
+  cloud_firestore: ^3.1.17
+   
 
 
   # The following adds the Cupertino Icons font to your application.

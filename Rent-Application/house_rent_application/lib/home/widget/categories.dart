@@ -10,11 +10,12 @@ class Categories extends StatefulWidget {
 }
 
 class _CategoriesState extends State<Categories> {
-  final categoriesList = ['Top', 'Near you', 'Apartment', 'Guest House'];
+  final categoriesList = ['Top', 'Near you', 'Apartment'];
   int currentSelect = 0;
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.symmetric(horizontal: 10),
       height: 35,
       child: ListView.separated(
           scrollDirection: Axis.horizontal,
