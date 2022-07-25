@@ -42,7 +42,7 @@ class ContentIntro extends StatelessWidget {
           RichText(
               text: TextSpan(children: [
             TextSpan(
-              text: '\$4455',
+              text: '\$455',
               style: Theme.of(context)
                   .textTheme
                   .headline1!

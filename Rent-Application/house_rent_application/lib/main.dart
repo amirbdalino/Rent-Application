@@ -3,11 +3,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:house_rent_application/login_page.dart';
-//import 'package:house_rent_application/pages/banks.dart';
+import 'package:house_rent_application/pages/banks.dart';
 import 'package:house_rent_application/pages/main_page.dart';
+import 'package:house_rent_application/pages/registration.dart';
+import 'package:house_rent_application/pages/rent_page.dart';
 
-//import 'package:house_rent_application/pages/registration.dart';
-//import 'package:house_rent_application/pages/rent_page.dart';
 bool shouldUseFirebaseEmulator = false;
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -43,9 +43,9 @@ class MyApp extends StatelessWidget {
       routes: {
         '/login': (context) => LoginPage(),
         '/home': (context) => MainPage(),
-        // '/rent': (context) => Rent(),
-        // '/singup': (context) => const Registration(),
-        // '/bank': (context) => PaymentForm(),
+        '/rent': (context) => Rent(),
+        '/singup': (context) => const Registration(),
+        '/bank': (context) => PaymentForm(),
       },
     );
   }

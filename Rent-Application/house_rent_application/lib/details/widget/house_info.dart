@@ -8,25 +8,30 @@ class HouseInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: EdgeInsets.only(right: 5),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: const [
-              MenuInfo(content: '5 Bedroom\n3 Master Bedroom'),
-              MenuInfo(content: '5 Bathroom\n3 Toilet'),
+              MenuInfo(
+                  imageUrl: 'assets/bedroom.png',
+                  content: '5 Bedroom\n3 Master Bedroom'),
+              MenuInfo(
+                  imageUrl: 'assets/bathroom.png',
+                  content: '5 Bathroom\n3 Toilet'),
             ],
           ),
-          SizedBox(
-            height: 10,
-          ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: const [
-              MenuInfo(content: '2 Kitchen\n120 sqft'),
-              SizedBox(
-                height: 15,
-              ),
-              MenuInfo(content: '2 Parking\n120 sqft'),
+              MenuInfo(
+                  imageUrl: 'assets/kitchen.png',
+                  content: '2 Kitchen\n120 sqft'),
+              MenuInfo(
+                  imageUrl: 'assets/parking.png',
+                  content: '2 Parking\n120 sqft'),
             ],
           ),
         ],
@@ -36,26 +41,38 @@ class HouseInfo extends StatelessWidget {
 }
 
 class MenuInfo extends StatelessWidget {
+  final String imageUrl;
   final String content;
 
-  const MenuInfo({Key? key, required this.content}) : super(key: key);
+  const MenuInfo({Key? key, required this.content, required this.imageUrl})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.all(8),
-        child: Expanded(
-          child: Row(
-            children: [
-              Text(
-                content,
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyText1!
-                    .copyWith(fontSize: 14),
-              )
-            ],
-          ),
-        ));
+      padding: EdgeInsets.all(5),
+      child: Expanded(
+        //flex: 2,
+        child: Row(
+          children: [
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 15),
+              // height: 20,
+              // width: 20,
+              child: Image.asset(
+                imageUrl,
+                width: 40,
+                height: 50,
+              ),
+            ),
+            Text(
+              content,
+              style:
+                  Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 14),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }

@@ -40,8 +40,8 @@ class _ResetpasswordState extends State<Resetpassword> {
                   const SizedBox(height: 2.0),
                   const Align(
                       alignment: Alignment.topLeft,
-                      child: Text(
-                          "       Enter email to reset your account password")),
+                      child:
+                          Text("Enter email to reset your account password")),
                   const SizedBox(height: 8.0),
                   const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 26, vertical: 6),

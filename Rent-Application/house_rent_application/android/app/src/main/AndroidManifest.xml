@@ -1,7 +1,8 @@
+<!-- <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.house_rent_application">
    <application
-        android:label="house_rent_application"
+        android:label="RentApp"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

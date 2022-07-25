@@ -2,10 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:house_rent_application/home/widget/categories.dart';
-import 'package:house_rent_application/home/widget/top_house.dart';
+//import 'package:house_rent_application/home/widget/top_house.dart';
 import 'package:house_rent_application/home/widget/welcome.dart';
-import 'package:house_rent_application/home/widget/guesthouse.dart';
 import 'package:house_rent_application/pages/navBar.dart';
+
+import '../pages/guesthouse.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -33,7 +34,8 @@ class HomePage extends StatelessWidget {
                   height: 20,
                 ),
                 Categories(),
-                TopHouse(),
+
+                //TopHouse(),
                 SizedBox(
                   height: 20,
                 ),

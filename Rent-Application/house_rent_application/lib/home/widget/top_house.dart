@@ -77,7 +77,7 @@ class TopHouse extends StatelessWidget {
                                               fontWeight: FontWeight.bold),
                                     ),
                                   ],
-                                )
+                                ),
                               ],
                             ),
                           ),
@@ -86,7 +86,7 @@ class TopHouse extends StatelessWidget {
                     )),
               ),
           separatorBuilder: (_, index) => SizedBox(
-                width: 20,
+                width: 15,
               ),
           itemCount: topList.length),
     );

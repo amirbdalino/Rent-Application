@@ -1,6 +1,6 @@
-// ignore_for_file: prefer_const_constructors
-
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
+import 'package:house_rent_application/home/widget/top_house.dart';
 
 class Categories extends StatefulWidget {
   const Categories({Key? key}) : super(key: key);
@@ -9,51 +9,55 @@ class Categories extends StatefulWidget {
   State<Categories> createState() => _CategoriesState();
 }
 
-class _CategoriesState extends State<Categories> {
-  final categoriesList = ['Top', 'Near you', 'Apartment'];
-  int currentSelect = 0;
+class _CategoriesState extends State<Categories> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10),
-      height: 35,
-      child: ListView.separated(
-          scrollDirection: Axis.horizontal,
-          itemBuilder: ((context, index) => GestureDetector(
-                onTap: () {
-                  setState(() {
-                    currentSelect = index;
-                  });
-                },
-                child: Container(
-                  padding: EdgeInsets.only(left: 45),
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                      border: Border(
-                          bottom: BorderSide(
-                    color: currentSelect == index
-                        ? Theme.of(context).primaryColor
-                        : Colors.transparent,
-                    width: 3,
-                  ))),
-                  child: Text(
-                    categoriesList[index],
-                    style: TextStyle(
-                      color: currentSelect == index
-                          ? Theme.of(context).primaryColor
-                          : Theme.of(context).textTheme.bodyText1!.color,
-                      fontSize: currentSelect == index ? 16 : 14,
-                      fontWeight: currentSelect == index
-                          ? FontWeight.bold
-                          : FontWeight.normal,
-                    ),
+    TabController tabController = TabController(length: 3, vsync: this);
+    return SafeArea(
+      child: Column(
+        children: [
+          Container(
+            padding: EdgeInsets.all(10),
+            child: Align(
+              alignment: Alignment.center,
+              child: TabBar(
+                indicatorSize: TabBarIndicatorSize.label,
+                controller: tabController,
+                isScrollable: true,
+                labelPadding: const EdgeInsets.only(left: 20, right: 20),
+                labelColor: Colors.black,
+                unselectedLabelColor: Colors.grey,
+                tabs: [
+                  Tab(
+                    text: 'Top',
                   ),
-                ),
-              )),
-          separatorBuilder: (_, index) => SizedBox(
-                width: 15,
+                  Tab(
+                    text: 'Near you',
+                  ),
+                  Tab(
+                    text: 'Apartment',
+                  )
+                ],
               ),
-          itemCount: categoriesList.length),
+            ),
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Container(
+            width: double.maxFinite,
+            height: 300,
+            child: TabBarView(
+              controller: tabController,
+              children: [
+                TopHouse(),
+                TopHouse(),
+                TopHouse(),
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }

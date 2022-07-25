@@ -33,31 +33,33 @@ class DetailPage extends StatelessWidget {
             SizedBox(
               height: 25,
             ),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+            Center(
               child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const ApplicantPage()));
-                  },
-                  style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8)),
-                      primary: Theme.of(context).primaryColor),
-                  child: Container(
-                    alignment: Alignment.center,
-                    padding: EdgeInsets.symmetric(vertical: 15),
-                    child: Text(
-                      'Book Now',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  )),
-            )
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ApplicantPage()));
+                },
+                style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8)),
+                    primary: Theme.of(context).primaryColor),
+                child: Container(
+                  width: 100,
+                  height: 50,
+                  alignment: Alignment.center,
+                  padding: EdgeInsets.symmetric(vertical: 15),
+                  child: Text(
+                    'Book Now',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),

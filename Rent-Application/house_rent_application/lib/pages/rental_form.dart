@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:house_rent_application/details/detail.dart';
+import 'package:house_rent_application/home/home_page.dart';
 import 'package:house_rent_application/pages/navBar.dart';
 
 class ApplicantPage extends StatefulWidget {
@@ -25,14 +27,19 @@ class _ApplicantPageState extends State<ApplicantPage> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        drawer: NavBar(),
-        backgroundColor: Colors.white70,
+        backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: Color.fromARGB(255, 39, 2, 46),
           title: const Text(
-            "Kabbee Real Estate",
+            "Rental Form",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
           ),
+          leading: IconButton(
+              icon: const Icon(Icons.arrow_back, color: Colors.white),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => HomePage()));
+              }),
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -49,7 +56,7 @@ class _ApplicantPageState extends State<ApplicantPage> {
                 color: Colors.grey,
                 thickness: 2,
               ),
-               Padding(
+              Padding(
                 padding: EdgeInsets.symmetric(horizontal: 26, vertical: 16),
                 child: TextFormField(
                   //controller: firstName,
@@ -61,8 +68,7 @@ class _ApplicantPageState extends State<ApplicantPage> {
                       ),
                     ),
                     labelText: 'First Name',
-
-                    errorText: _validate ? 'Username Can\'t Be Empty' : null,
+                    errorText: _validate ? 'Username can\'t be empty' : null,
                   ),
                 ),
               ),
