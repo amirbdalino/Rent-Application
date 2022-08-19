@@ -5,11 +5,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_textfield_validation/flutter_textfield_validation.dart';
 
+import '../utils/utils_method.dart';
+
 class Registration extends StatefulWidget {
   const Registration({
     Key? key,
-    String? Function(String?)? validator = passwordValidator,
-    String? Function(String?)? validator1 = confirmPasswordValidator,
+    // String? Function(String?)? validator = passwordValidator,
+    // String? Function(String?)? validator1 = confirmPasswordValidator,
   }) : super(key: key);
 
   @override
@@ -57,6 +59,7 @@ class _RegistrationState extends State<Registration> {
           'Succesfully registered',
           style: TextStyle(fontSize: 16),
         ),
+        behavior: SnackBarBehavior.floating,
         backgroundColor: Colors.blueAccent,
         duration: Duration(seconds: 2),
       ));
@@ -262,25 +265,3 @@ class _RegistrationState extends State<Registration> {
   }
 }
 
-String? passwordValidator(String? password) {
-  if (password != null && !isAlphaNumeric(password)) {
-    return 'Password has to be 8 characters long with atleast one number';
-  }
-
-  return null;
-}
-
-String? confirmPasswordValidator(String? password) {
-  if (password != null && !isAlphaNumeric(password)) {
-    return 'Password has to be 8 characters long with atleast one number';
-  }
-
-  return null;
-}
-
-/// Regular expression for password validation
-bool isAlphaNumeric(String? value) {
-  String pattern = r'^(?=.*\d)(?=.*[a-z])(?=.*[a-zA-Z]).{8,}$';
-  RegExp regExp = RegExp(pattern);
-  return regExp.hasMatch(value!);
-}

@@ -16,7 +16,7 @@ class TopHouse extends StatelessWidget {
       height: 340,
       child: ListView.separated(
           scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) => GestureDetector(
+          itemBuilder: (context, index) => InkWell(
                 onTap: () {
                   Navigator.of(context)
                       .push(MaterialPageRoute(builder: (context) {

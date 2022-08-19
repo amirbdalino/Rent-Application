@@ -1,16 +1,18 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_textfield_validation/flutter_textfield_validation.dart';
 // import 'package:house_rent_application/home/home_page.dart';
 import 'package:house_rent_application/pages/Reset_Password.dart';
 import 'package:house_rent_application/pages/registration.dart';
+import 'package:house_rent_application/utils/utils_method.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({
     Key? key,
-    String? Function(String?)? validator = passwordValidator,
+    
   }) : super(key: key);
 
   @override
@@ -47,6 +49,7 @@ class _LoginPageState extends State<LoginPage> {
           'Succesfully logged in',
           // style: ,
         ),
+        behavior: SnackBarBehavior.floating,
         backgroundColor: Colors.blueAccent,
         duration: Duration(seconds: 2),
       ));
@@ -58,6 +61,7 @@ class _LoginPageState extends State<LoginPage> {
           style: TextStyle(fontSize: 16, color: Colors.black),
           // style: ,
         ),
+        behavior: SnackBarBehavior.floating,
         backgroundColor: Colors.red,
         duration: Duration(seconds: 2),
       ));
@@ -143,8 +147,7 @@ class _LoginPageState extends State<LoginPage> {
             child: TextFormField(
               controller: _emailController,
               autovalidateMode: AutovalidateMode.onUserInteraction,
-              validator: (input) =>
-                  input!.validateEmail() ? null : "Please enter valid email!",
+              validator: emailValidator,
               decoration: InputDecoration(
                 suffixIcon: Icon(Icons.email),
                 border: OutlineInputBorder(
@@ -259,17 +262,3 @@ class _LoginPageState extends State<LoginPage> {
   }
 }
 
-String? passwordValidator(String? password) {
-  if (password != null && !isAlphaNumeric(password)) {
-    return 'Password has to be 8 characters long with atleast one number';
-  }
-
-  return null;
-}
-
-/// Regular expression for password validation
-bool isAlphaNumeric(String? value) {
-  String pattern = r'^(?=.*\d)(?=.*[a-z])(?=.*[a-zA-Z]).{8,}$';
-  RegExp regExp = RegExp(pattern);
-  return regExp.hasMatch(value!);
-}

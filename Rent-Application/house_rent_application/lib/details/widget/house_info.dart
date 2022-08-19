@@ -50,28 +50,24 @@ class MenuInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(5),
-      child: Expanded(
-        //flex: 2,
-        child: Row(
-          children: [
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 15),
-              // height: 20,
-              // width: 20,
-              child: Image.asset(
-                imageUrl,
-                width: 40,
-                height: 50,
-              ),
+      child: Row(
+        children: [
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 15),
+            // height: 20,
+            // width: 20,
+            child: Image.asset(
+              imageUrl,
+              width: 40,
+              height: 50,
             ),
-            Text(
-              content,
-              style:
-                  Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 14),
-            )
-          ],
-        ),
+          ),
+          Text(
+            content,
+            style:
+                Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 14),
+          )
+        ],
       ),
     );
   }

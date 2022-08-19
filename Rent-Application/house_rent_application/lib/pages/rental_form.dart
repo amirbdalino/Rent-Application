@@ -1,8 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_textfield_validation/flutter_textfield_validation.dart';
 import 'package:house_rent_application/details/detail.dart';
 import 'package:house_rent_application/home/home_page.dart';
+import 'package:house_rent_application/pages/bottom_navigators.dart';
 import 'package:house_rent_application/pages/navBar.dart';
 
 class ApplicantPage extends StatefulWidget {
@@ -14,7 +16,6 @@ class ApplicantPage extends StatefulWidget {
 
 class _ApplicantPageState extends State<ApplicantPage> {
   final firstName = TextEditingController();
-  bool _validate = false;
 
   // @override
   // void dispose() {
@@ -38,7 +39,7 @@ class _ApplicantPageState extends State<ApplicantPage> {
               icon: const Icon(Icons.arrow_back, color: Colors.white),
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => HomePage()));
+                    MaterialPageRoute(builder: (context) => BottomNavBar()));
               }),
         ),
         body: SingleChildScrollView(
@@ -59,6 +60,10 @@ class _ApplicantPageState extends State<ApplicantPage> {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 26, vertical: 16),
                 child: TextFormField(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  validator: (input) => input!.validateName()
+                      ? null
+                      : "Name should to be at least 3 characters long alphabets!",
                   //controller: firstName,
                   decoration: InputDecoration(
                     suffixIcon: Icon(Icons.person),
@@ -68,13 +73,16 @@ class _ApplicantPageState extends State<ApplicantPage> {
                       ),
                     ),
                     labelText: 'First Name',
-                    errorText: _validate ? 'Username can\'t be empty' : null,
                   ),
                 ),
               ),
-              const Padding(
+              Padding(
                 padding: EdgeInsets.symmetric(horizontal: 26, vertical: 16),
-                child: TextField(
+                child: TextFormField(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  validator: (input) => input!.validateName()
+                      ? null
+                      : "Name should to be at least 3 characters long alphabets!",
                   decoration: InputDecoration(
                     suffixIcon: Icon(Icons.person),
                     border: OutlineInputBorder(
@@ -86,9 +94,13 @@ class _ApplicantPageState extends State<ApplicantPage> {
                   ),
                 ),
               ),
-              const Padding(
+              Padding(
                 padding: EdgeInsets.symmetric(horizontal: 26, vertical: 16),
-                child: TextField(
+                child: TextFormField(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  validator: (input) => input!.validateEmail()
+                      ? null
+                      : "Please enter valid email!",
                   decoration: InputDecoration(
                     suffixIcon: Icon(Icons.email),
                     border: OutlineInputBorder(
@@ -101,9 +113,13 @@ class _ApplicantPageState extends State<ApplicantPage> {
                   keyboardType: TextInputType.name,
                 ),
               ),
-              const Padding(
+              Padding(
                 padding: EdgeInsets.symmetric(horizontal: 26, vertical: 16),
-                child: TextField(
+                child: TextFormField(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  validator: (input) => input!.validatePhone()
+                      ? null
+                      : "Phone should to be at least 10 digits long !",
                   decoration: InputDecoration(
                     suffixIcon: Icon(Icons.phone),
                     border: OutlineInputBorder(
@@ -126,9 +142,9 @@ class _ApplicantPageState extends State<ApplicantPage> {
                 "Current Rental / Residence History",
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
-              const Padding(
+              Padding(
                 padding: EdgeInsets.symmetric(horizontal: 26, vertical: 16),
-                child: TextField(
+                child: TextFormField(
                   decoration: InputDecoration(
                     suffixIcon: Icon(Icons.location_city),
                     border: OutlineInputBorder(
@@ -140,9 +156,13 @@ class _ApplicantPageState extends State<ApplicantPage> {
                   ),
                 ),
               ),
-              const Padding(
+              Padding(
                 padding: EdgeInsets.symmetric(horizontal: 26, vertical: 16),
-                child: TextField(
+                child: TextFormField(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  validator: (input) => input!.validateAddress()
+                      ? null
+                      : "Address should to be at least 3 characters long alphabets!",
                   decoration: InputDecoration(
                     suffixIcon: Icon(Icons.add_location),
                     border: OutlineInputBorder(
@@ -154,9 +174,9 @@ class _ApplicantPageState extends State<ApplicantPage> {
                   ),
                 ),
               ),
-              const Padding(
+              Padding(
                 padding: EdgeInsets.symmetric(horizontal: 26, vertical: 16),
-                child: TextField(
+                child: TextFormField(
                   decoration: InputDecoration(
                     suffixIcon: Icon(Icons.badge_rounded),
                     border: OutlineInputBorder(
@@ -177,9 +197,13 @@ class _ApplicantPageState extends State<ApplicantPage> {
                 "House hold",
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
-              const Padding(
+              Padding(
                 padding: EdgeInsets.symmetric(horizontal: 26, vertical: 16),
-                child: TextField(
+                child: TextFormField(
+                  // autovalidateMode: AutovalidateMode.onUserInteraction,
+                  // validator: (input) => input!.validatePincode()
+                  //     ? null
+                  //     : "Address should to be at least 3 characters long alphabets!",
                   decoration: InputDecoration(
                     suffixIcon: Icon(Icons.numbers),
                     border: OutlineInputBorder(
