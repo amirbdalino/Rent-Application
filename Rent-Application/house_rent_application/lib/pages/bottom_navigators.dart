@@ -7,6 +7,7 @@ import 'package:house_rent_application/pages/guesthouse.dart';
 import 'package:house_rent_application/pages/rent_page.dart';
 import 'package:house_rent_application/pages/setting.dart';
 
+
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({Key? key}) : super(key: key);
 
@@ -24,7 +25,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
     Rent(),
     GuestHouse(),
     SetttinPage(
-      
+
     )
   ];
   @override
